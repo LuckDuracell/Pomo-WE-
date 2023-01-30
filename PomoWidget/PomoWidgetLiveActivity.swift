@@ -70,7 +70,7 @@ struct LiveWidgetView: View {
                 .scaledToFit()
                 .foregroundColor(.green)
         } .padding(.horizontal)
-        .activityBackgroundTint(Color.gray.opacity(0.8))
-        .activitySystemActionForegroundColor(Color.pink)
+        .activityBackgroundTint(Color("pomoRed").opacity(0.6))
+        .activitySystemActionForegroundColor(.white)
     }
 }
