@@ -14,6 +14,14 @@
 		0AE8886129875E2D003607E4 /* PomoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8886029875E2D003607E4 /* PomoTests.swift */; };
 		0AE8886B29875E2D003607E4 /* PomoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8886A29875E2D003607E4 /* PomoUITests.swift */; };
 		0AE8886D29875E2D003607E4 /* PomoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8886C29875E2D003607E4 /* PomoUITestsLaunchTests.swift */; };
+		0AE8888029875E5F003607E4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE8887F29875E5F003607E4 /* WidgetKit.framework */; };
+		0AE8888229875E5F003607E4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE8888129875E5F003607E4 /* SwiftUI.framework */; };
+		0AE8888529875E5F003607E4 /* PomoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8888429875E5F003607E4 /* PomoWidgetBundle.swift */; };
+		0AE8888729875E5F003607E4 /* PomoWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8888629875E5F003607E4 /* PomoWidgetLiveActivity.swift */; };
+		0AE8888B29875E61003607E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE8888A29875E61003607E4 /* Assets.xcassets */; };
+		0AE8888F29875E61003607E4 /* PomoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0AE8887D29875E5F003607E4 /* PomoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0AE88895298761EA003607E4 /* PomoWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE88894298761EA003607E4 /* PomoWidgetAttributes.swift */; };
+		0AE8889629876282003607E4 /* PomoWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE88894298761EA003607E4 /* PomoWidgetAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +39,28 @@
 			remoteGlobalIDString = 0AE8884A29875E2A003607E4;
 			remoteInfo = Pomo;
 		};
+		0AE8888D29875E61003607E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AE8884329875E2A003607E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AE8887C29875E5F003607E4;
+			remoteInfo = PomoWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0AE8889329875E61003607E4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0AE8888F29875E61003607E4 /* PomoWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0AE8884B29875E2A003607E4 /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +74,14 @@
 		0AE8886629875E2D003607E4 /* PomoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE8886A29875E2D003607E4 /* PomoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoUITests.swift; sourceTree = "<group>"; };
 		0AE8886C29875E2D003607E4 /* PomoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0AE8887D29875E5F003607E4 /* PomoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PomoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AE8887F29875E5F003607E4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0AE8888129875E5F003607E4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0AE8888429875E5F003607E4 /* PomoWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoWidgetBundle.swift; sourceTree = "<group>"; };
+		0AE8888629875E5F003607E4 /* PomoWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		0AE8888A29875E61003607E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0AE8888C29875E61003607E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AE88894298761EA003607E4 /* PomoWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoWidgetAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +106,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0AE8887A29875E5F003607E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE8888229875E5F003607E4 /* SwiftUI.framework in Frameworks */,
+				0AE8888029875E5F003607E4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +124,8 @@
 				0AE8884D29875E2A003607E4 /* Pomo */,
 				0AE8885F29875E2D003607E4 /* PomoTests */,
 				0AE8886929875E2D003607E4 /* PomoUITests */,
+				0AE8888329875E5F003607E4 /* PomoWidget */,
+				0AE8887E29875E5F003607E4 /* Frameworks */,
 				0AE8884C29875E2A003607E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +136,7 @@
 				0AE8884B29875E2A003607E4 /* Pomo.app */,
 				0AE8885C29875E2D003607E4 /* PomoTests.xctest */,
 				0AE8886629875E2D003607E4 /* PomoUITests.xctest */,
+				0AE8887D29875E5F003607E4 /* PomoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +146,7 @@
 			children = (
 				0AE8884E29875E2A003607E4 /* PomoApp.swift */,
 				0AE8885029875E2A003607E4 /* ContentView.swift */,
+				0AE88894298761EA003607E4 /* PomoWidgetAttributes.swift */,
 				0AE8885229875E2D003607E4 /* Assets.xcassets */,
 				0AE8885429875E2D003607E4 /* Pomo.entitlements */,
 				0AE8885529875E2D003607E4 /* Preview Content */,
@@ -129,6 +179,26 @@
 			path = PomoUITests;
 			sourceTree = "<group>";
 		};
+		0AE8887E29875E5F003607E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AE8887F29875E5F003607E4 /* WidgetKit.framework */,
+				0AE8888129875E5F003607E4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AE8888329875E5F003607E4 /* PomoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0AE8888429875E5F003607E4 /* PomoWidgetBundle.swift */,
+				0AE8888629875E5F003607E4 /* PomoWidgetLiveActivity.swift */,
+				0AE8888A29875E61003607E4 /* Assets.xcassets */,
+				0AE8888C29875E61003607E4 /* Info.plist */,
+			);
+			path = PomoWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,10 +209,12 @@
 				0AE8884729875E2A003607E4 /* Sources */,
 				0AE8884829875E2A003607E4 /* Frameworks */,
 				0AE8884929875E2A003607E4 /* Resources */,
+				0AE8889329875E61003607E4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0AE8888E29875E61003607E4 /* PBXTargetDependency */,
 			);
 			name = Pomo;
 			productName = Pomo;
@@ -185,6 +257,23 @@
 			productReference = 0AE8886629875E2D003607E4 /* PomoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0AE8887C29875E5F003607E4 /* PomoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AE8889029875E61003607E4 /* Build configuration list for PBXNativeTarget "PomoWidgetExtension" */;
+			buildPhases = (
+				0AE8887929875E5F003607E4 /* Sources */,
+				0AE8887A29875E5F003607E4 /* Frameworks */,
+				0AE8887B29875E5F003607E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PomoWidgetExtension;
+			productName = PomoWidgetExtension;
+			productReference = 0AE8887D29875E5F003607E4 /* PomoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +295,9 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 0AE8884A29875E2A003607E4;
 					};
+					0AE8887C29875E5F003607E4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = 0AE8884629875E2A003607E4 /* Build configuration list for PBXProject "Pomo" */;
@@ -224,6 +316,7 @@
 				0AE8884A29875E2A003607E4 /* Pomo */,
 				0AE8885B29875E2D003607E4 /* PomoTests */,
 				0AE8886529875E2D003607E4 /* PomoUITests */,
+				0AE8887C29875E5F003607E4 /* PomoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +345,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0AE8887B29875E5F003607E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE8888B29875E61003607E4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -260,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE8885129875E2A003607E4 /* ContentView.swift in Sources */,
+				0AE88895298761EA003607E4 /* PomoWidgetAttributes.swift in Sources */,
 				0AE8884F29875E2A003607E4 /* PomoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +383,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0AE8887929875E5F003607E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE8888529875E5F003607E4 /* PomoWidgetBundle.swift in Sources */,
+				0AE8888729875E5F003607E4 /* PomoWidgetLiveActivity.swift in Sources */,
+				0AE8889629876282003607E4 /* PomoWidgetAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +405,11 @@
 			isa = PBXTargetDependency;
 			target = 0AE8884A29875E2A003607E4 /* Pomo */;
 			targetProxy = 0AE8886729875E2D003607E4 /* PBXContainerItemProxy */;
+		};
+		0AE8888E29875E61003607E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AE8887C29875E5F003607E4 /* PomoWidgetExtension */;
+			targetProxy = 0AE8888D29875E61003607E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -409,6 +526,7 @@
 		0AE8887129875E2D003607E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pomo/Pomo.entitlements;
@@ -419,6 +537,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -447,6 +567,7 @@
 		0AE8887229875E2D003607E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pomo/Pomo.entitlements;
@@ -457,6 +578,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -572,6 +695,69 @@
 			};
 			name = Release;
 		};
+		0AE8889129875E61003607E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV78ENMXZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PomoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PomoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = luckdev.Pomo.PomoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0AE8889229875E61003607E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV78ENMXZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PomoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PomoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = luckdev.Pomo.PomoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -607,6 +793,15 @@
 			buildConfigurations = (
 				0AE8887729875E2D003607E4 /* Debug */,
 				0AE8887829875E2D003607E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AE8889029875E61003607E4 /* Build configuration list for PBXNativeTarget "PomoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AE8889129875E61003607E4 /* Debug */,
+				0AE8889229875E61003607E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
