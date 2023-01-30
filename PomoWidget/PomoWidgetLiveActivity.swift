@@ -68,9 +68,8 @@ struct LiveWidgetView: View {
                 .resizable()
                 .frame(width: 35, height: 35, alignment: .center)
                 .scaledToFit()
-                .foregroundColor(.green)
         } .padding(.horizontal)
-        .activityBackgroundTint(Color("pomoRed").opacity(0.6))
+        .activityBackgroundTint(nil)
         .activitySystemActionForegroundColor(.white)
     }
 }
