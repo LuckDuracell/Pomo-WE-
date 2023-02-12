@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5633922998CA770073FA8D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5633912998CA770073FA8D /* SettingsView.swift */; };
 		0AE8884F29875E2A003607E4 /* PomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8884E29875E2A003607E4 /* PomoApp.swift */; };
 		0AE8885129875E2A003607E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8885029875E2A003607E4 /* ContentView.swift */; };
 		0AE8885329875E2D003607E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE8885229875E2D003607E4 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A5633912998CA770073FA8D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0AE8884B29875E2A003607E4 /* Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE8884E29875E2A003607E4 /* PomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoApp.swift; sourceTree = "<group>"; };
 		0AE8885029875E2A003607E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				0AE8884E29875E2A003607E4 /* PomoApp.swift */,
 				0AE8885029875E2A003607E4 /* ContentView.swift */,
+				0A5633912998CA770073FA8D /* SettingsView.swift */,
 				0AE88894298761EA003607E4 /* PomoWidgetAttributes.swift */,
 				0AE8885229875E2D003607E4 /* Assets.xcassets */,
 				0AE8885429875E2D003607E4 /* Pomo.entitlements */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE8885129875E2A003607E4 /* ContentView.swift in Sources */,
+				0A5633922998CA770073FA8D /* SettingsView.swift in Sources */,
 				0AE88895298761EA003607E4 /* PomoWidgetAttributes.swift in Sources */,
 				0AE8884F29875E2A003607E4 /* PomoApp.swift in Sources */,
 			);
@@ -557,10 +561,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = luckdev.Pomo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -598,10 +604,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = luckdev.Pomo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

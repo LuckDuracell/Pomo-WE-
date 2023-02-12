@@ -14,6 +14,9 @@ import UserNotifications
 
 struct ContentView: View {
     
+    @State var liveActivities: Bool = true
+    @State var notifications: Bool = true
+    
     @State var timeRemaining = "25:00"
     @State var timerActive = false
     @State var timerEndInterval: TimeInterval = 0
@@ -31,66 +34,18 @@ struct ContentView: View {
     
     
     func startLiveActivity() {
+        let activityEntitlements = ActivityAuthorizationInfo()
         let pomoAttributes = PomoWidgetAttributes()
-        let initalContentState = PomoWidgetAttributes.ContentState(endDate: endDate)
-        let staleDate = Calendar.current.date(byAdding: .minute, value: 30, to: endDate)!
-        let activityContent = ActivityContent(state: initalContentState, staleDate: staleDate)
-
-        do {
-            let activity = try Activity<PomoWidgetAttributes>.request(attributes: pomoAttributes, content: activityContent)
-            print("Activity Added Successfully. ID: \(activity.id)")
-            activityID = activity.id
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func scheduleNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Pomo"
-        content.subtitle = "Timer Ended, lets get going!"
-        content.sound = UNNotificationSound.default
-
-        // show this notification when the timer is set to
-        
-        var dateComponents = DateComponents()
-        dateComponents = Calendar.current.dateComponents([.second, .minute, .hour], from: endDate)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-
-        // choose a random identifier
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        // add our notification request
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    func clearNotifications() {
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
-    }
-    
-    func printNotifications() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            let center = UNUserNotificationCenter.current()
-            center.getPendingNotificationRequests { (notifications) in
-                print("Count: \(notifications.count)")
-                print("-------------------")
-                for item in notifications {
-                    print(item.content.body)
-                    print(String(describing: item.trigger))
-                    print("-------------------")
-                }
-            }
-        })
-    }
-    
-    func removeLiveActivity() {
-        if let activity = Activity.activities.first(where: { (activity: Activity<PomoWidgetAttributes>) in
-            activity.id == activityID
-        }){
-            Task {
-                await activity.end(activity.content, dismissalPolicy: .immediate)
+        if activityEntitlements.areActivitiesEnabled && liveActivities {
+            let initalContentState = PomoWidgetAttributes.ContentState(endDate: endDate)
+            let staleDate = Calendar.current.date(byAdding: .minute, value: 30, to: endDate)!
+            let activityContent = ActivityContent(state: initalContentState, staleDate: staleDate)
+            do {
+                let activity = try Activity<PomoWidgetAttributes>.request(attributes: pomoAttributes, content: activityContent)
+                print("Activity Added Successfully. ID: \(activity.id)")
+                activityID = activity.id
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }
@@ -133,11 +88,10 @@ struct ContentView: View {
                 endDate = Calendar.current.date(byAdding: .minute, value: 25, to: endDate)!
             }
         }
-        clearNotifications()
-        scheduleNotification()
-        printNotifications()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            removeLiveActivity()
+            clearNotifications()
+            removeLiveActivity(activityID)
+            scheduleNotification(endDate)
             startLiveActivity()
         })
     }
@@ -179,7 +133,7 @@ struct ContentView: View {
                             timerActive = false
                             timeRemaining = "25:00"
                             currentPomos = (1, 0)
-                            removeLiveActivity()
+                            removeLiveActivity(activityID)
                         } label: {
                             Text("Reset Timer")
                                 .foregroundColor(.white)
@@ -215,10 +169,30 @@ struct ContentView: View {
                     startNextTimer()
                 }), secondaryButton: .cancel(Text("No Thanks")))
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    NavigationLink(destination: {
+                        SettingsView(liveActivities: $liveActivities, timerActive: $timerActive, activityID: $activityID, endDate: $endDate, notifications: $notifications)
+                    }, label: {
+                        Image(systemName: "gear")
+                            .foregroundColor(.white)
+                    })
+                })
+            }
         } .onReceive(timer) { _ in
             updateTimer()
         }
         .onAppear(perform: {
+            if keySet("liveActivities") {
+                liveActivities = UserDefaults.standard.bool(forKey: "liveActivities")
+            } else {
+                UserDefaults.standard.set(true, forKey: "liveActivities")
+            }
+            if keySet("notifications") {
+                notifications = UserDefaults.standard.bool(forKey: "notifications")
+            } else {
+                UserDefaults.standard.set(true, forKey: "notifications")
+            }
             let currentNotification = UNUserNotificationCenter.current()
             currentNotification.getNotificationSettings(completionHandler: { (settings) in
                if settings.authorizationStatus == .notDetermined {
@@ -231,7 +205,6 @@ struct ContentView: View {
                    }
                }
             })
-            
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         })
         .colorScheme(.light)
@@ -247,4 +220,43 @@ struct ContentView_Previews: PreviewProvider {
 func startingBreak(_ currentPomos: (Int, Int)) -> Bool {
     if currentPomos.0 == currentPomos.1 { return true }
     return false
+}
+
+func removeLiveActivity(_ activityID: String) {
+    if let activity = Activity.activities.first(where: { (activity: Activity<PomoWidgetAttributes>) in
+        activity.id == activityID
+    }){
+        Task {
+            await activity.end(activity.content, dismissalPolicy: .immediate)
+        }
+    }
+}
+
+func scheduleNotification(_ endDate: Date) {
+    let content = UNMutableNotificationContent()
+    content.title = "Pomo"
+    content.subtitle = "Timer Ended, lets get going!"
+    content.sound = UNNotificationSound.default
+
+    // show this notification when the timer is set to
+    
+    var dateComponents = DateComponents()
+    dateComponents = Calendar.current.dateComponents([.second, .minute, .hour], from: endDate)
+    
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+
+    // choose a random identifier
+    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+    // add our notification request
+    UNUserNotificationCenter.current().add(request)
+}
+
+func clearNotifications() {
+    let center = UNUserNotificationCenter.current()
+    center.removeAllPendingNotificationRequests()
+}
+
+func keySet(_ key: String) -> Bool {
+    if UserDefaults.standard.object(forKey: key) != nil { return true } else { return false }
 }
