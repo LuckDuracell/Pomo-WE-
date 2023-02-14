@@ -234,7 +234,7 @@ func removeLiveActivity(_ activityID: String) {
 
 func scheduleNotification(_ endDate: Date) {
     let content = UNMutableNotificationContent()
-    content.title = "Pomo"
+    content.title = "Tomo"
     content.subtitle = "Timer Ended, lets get going!"
     content.sound = UNNotificationSound.default
 

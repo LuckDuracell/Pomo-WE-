@@ -61,7 +61,7 @@ struct LiveWidgetView: View {
                 .foregroundColor(.white)
                 .padding(.vertical, 6)
             Spacer()
-            Text("Pomo")
+            Text("Tomo")
                 .font(.title.bold())
                 .foregroundColor(.white)
             Image("pomo.fill")

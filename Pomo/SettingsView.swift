@@ -60,9 +60,9 @@ struct SettingsView: View {
                     }
                 }
                 .padding()
+                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
                 .background(.ultraThinMaterial)
                 .cornerRadius(15)
-                .padding(.horizontal)
                 .padding(.top)
                 Toggle(isOn: $notifications, label: {
                     Label(title: { Text("Show Notifications") }, icon: { Image(systemName: "bell.badge.fill") })
@@ -82,19 +82,45 @@ struct SettingsView: View {
                     }
                 }
                 .padding()
+                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
                 .background(.ultraThinMaterial)
                 .cornerRadius(15)
-                .padding(.horizontal)
+                Link(destination: URL(string: UIApplication.openSettingsURLString)!, label: {
+                    Label(title: {Text("Open Permissions")}, icon: {
+                        Image(systemName: "hexagon.fill")
+                            .rotationEffect(Angle(degrees: 30))
+                    })
+                })
+                .padding()
+                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
+                .background(.ultraThinMaterial)
+                .cornerRadius(15)
                 Divider()
+                NavigationLink(destination: {
+                    
+                }, label: {
+                    HStack {
+                        Image(systemName: "book.closed.fill")
+                            .foregroundColor(Color("pomoRed"))
+                        Text("Our Story")
+                            .foregroundColor(Color("pomoRed"))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                    } .padding()
+                        .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(15)
+                })
                 Button {
                     requestReview()
                 } label: {
                     Label(title: {Text("Review App")}, icon: {Image(systemName: "star.fill")})
                 }
                 .padding()
+                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
                 .background(.ultraThinMaterial)
                 .cornerRadius(15)
-                .padding(.horizontal)
             }
         } .navigationTitle("Settings")
     }
