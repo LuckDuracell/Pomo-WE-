@@ -97,7 +97,14 @@ struct SettingsView: View {
                 .cornerRadius(15)
                 Divider()
                 NavigationLink(destination: {
-                    
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text("\n   One day I found myself with a rapidly approaching deadline for a 10 Page Paper. I thought to myself, I should use the Pomodoro Technique so that I can focus better.\n")
+                            Text("   When I installed a popular Pomodoro app, I found that the one feature I expected was not missing. That being the timer on my lockscreen.\n")
+                            Text("   And so, I got straight to work and had a working version by the end of my weekend. A couple more weeks of refining and smoothing bugs out, and boom... Tomo is born!")
+                        }
+                    } .padding()
+                        .font(.title2.bold())
                 }, label: {
                     HStack {
                         Image(systemName: "book.closed.fill")
