@@ -89,12 +89,11 @@ struct SettingsView: View {
                     Label(title: {Text("Open Permissions")}, icon: {
                         Image(systemName: "hexagon.fill")
                             .rotationEffect(Angle(degrees: 30))
-                    })
+                    }) .padding()
+                        .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(15)
                 })
-                .padding()
-                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
-                .background(.ultraThinMaterial)
-                .cornerRadius(15)
                 Divider()
                 NavigationLink(destination: {
                     ScrollView {
@@ -122,12 +121,11 @@ struct SettingsView: View {
                 Button {
                     requestReview()
                 } label: {
-                    Label(title: {Text("Review App")}, icon: {Image(systemName: "star.fill")})
+                    Label(title: {Text("Review App")}, icon: {Image(systemName: "star.fill")}) .padding()
+                        .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(15)
                 }
-                .padding()
-                .frame(width: UIScreen.main.bounds.width * 0.92, height: 65, alignment: .leading)
-                .background(.ultraThinMaterial)
-                .cornerRadius(15)
             }
         } .navigationTitle("Settings")
     }
