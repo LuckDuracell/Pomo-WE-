@@ -134,6 +134,7 @@ struct ContentView: View {
                             timeRemaining = "25:00"
                             currentPomos = (1, 0)
                             removeLiveActivity(activityID)
+                            clearNotifications()
                         } label: {
                             Text("Reset Timer")
                                 .foregroundColor(.white)
