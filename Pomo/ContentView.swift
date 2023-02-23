@@ -32,7 +32,6 @@ struct ContentView: View {
     
     @State var activityID: String = ""
     
-    
     func startLiveActivity() {
         let activityEntitlements = ActivityAuthorizationInfo()
         let pomoAttributes = PomoWidgetAttributes()
